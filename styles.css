@@ -8,12 +8,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
-    
+    position: relative;
+
     /* Blur effect */
     backdrop-filter: blur(9px); /* Adjust the blur radius as needed */
-    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    -webkit-backdrop-filter: blur(9px); /* For Safari */
 }
-
 
 audio {
     width: 100%;
@@ -27,6 +27,7 @@ audio {
     align-items: center;
     width: 100%;
     height: 100%;
+    z-index: 1; /* Ensure it is below the click screen */
 }
 
 .profile-card {
@@ -36,6 +37,7 @@ audio {
     text-align: center;
     color: #fff;
     width: 300px;
+    position: relative; /* Ensure it is properly positioned */
 }
 
 .profile-header {
@@ -67,6 +69,7 @@ audio {
     font-size: 12px;
 }
 
+/* Styles for the click screen */
 .click-screen {
     position: fixed;
     top: 0;
@@ -80,5 +83,11 @@ audio {
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 10; /* Ensure it appears above other content */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.click-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
