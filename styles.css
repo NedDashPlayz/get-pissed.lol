@@ -91,3 +91,28 @@ audio {
     opacity: 0;
     visibility: hidden;
 }
+
+.social-icons {
+    margin-top: 10px; /* Adjust spacing as needed */
+    text-align: center; /* Center align the social icons */
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 25px; /* Adjust size of icons */
+    height: 50px;
+    margin: 0 10px; /* Adjust spacing between icons */
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-indent: -9999px; /* Hide any text content */
+}
+
+.fakecrime-icon {
+    background-image: url('fakecrime-logo.png'); /* Replace with your logo image path */
+    background-position: center center; /* Center the background image */
+}
+
+.discord-icon {
+    background-image: url('discord-logo.png'); /* Replace with your logo image path */
+    background-position: center center; /* Center the background image */
+}
