@@ -1,6 +1,13 @@
-document.addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    const clickScreen = document.getElementById('click-screen');
     const audio = document.getElementById('background-audio');
-    if (audio.muted) {
-        audio.muted = false;
-    }
+
+    clickScreen.addEventListener('click', function() {
+        // Unmute the audio
+        if (audio.muted) {
+            audio.muted = false;
+        }
+        // Hide the click screen
+        clickScreen.style.display = 'none';
+    });
 });
