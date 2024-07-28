@@ -12,7 +12,7 @@ body {
 
     /* Blur effect */
     backdrop-filter: blur(9px); /* Adjust the blur radius as needed */
-    -webkit-backdrop-filter: blur(9px); /* For Safari */
+    -webkit-backdrop-filter: blur(9px); /* For Safari browser, who even uses it? */
 }
 
 audio {
@@ -69,7 +69,7 @@ audio {
     font-size: 12px;
 }
 
-/* Styles for the click screen */
+/* Styles for the click screen, no changie or everything breaks like the coconut.png */
 .click-screen {
     position: fixed;
     top: 0;
@@ -108,11 +108,11 @@ audio {
 }
 
 .fakecrime-icon {
-    background-image: url('fakecrime-logo.png'); /* Replace with your logo image path */
-    background-position: center center; /* Center the background image */
+    background-image: url('fakecrime-logo.png'); 
+    background-position: center center; /* Center the logo */
 }
 
 .discord-icon {
-    background-image: url('discord-logo.png'); /* Replace with your logo image path */
-    background-position: center center; /* Center the background image */
+    background-image: url('discord-logo.png'); 
+    background-position: center center; /* Center the logo with the fakecrime logo */
 }

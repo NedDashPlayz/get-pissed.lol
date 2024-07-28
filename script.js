@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('background-audio');
     const loginButton = document.getElementById('login-button');
 
-    // Set initial volume to 20% (0.2)
+    // 20 percent so that people don't want their ears pierced
     audio.volume = 0.2;
 
-    // Click screen event listener to start playing audio
+    // Click screen event listener for audio start
     clickScreen.addEventListener('click', function() {
         playAudioAndHideClickScreen();
     });
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.play().then(() => {
             // Unmute the audio (just in case it was muted)
             audio.muted = false;
-            // Smoothly hide the click screen
+            // hide da screen with effect
             clickScreen.classList.add('hidden');
         }).catch(error => {
             console.error('Error playing the audio:', error);
