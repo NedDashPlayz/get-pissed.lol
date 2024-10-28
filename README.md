@@ -22,10 +22,16 @@ Massive update that was long overdue. I have been working on this project for a 
 
 + very late add, but added a sequence so it auto-updates the status, activity, etc.
 
+-------------------------------------- Minor fixes from the same date ---------------------------------
+
+~ fixed that it didn't fetch the spotify activity
+~ fixed the favicon not showing
+
+
 -------------------------------------- Notes for Upcoming updates ---------------------------------
 
 - making so the backgound could be changed whenever
 - polish LanAPI card on how it looks, it looks too janky for my standarts, but good enough for publish 😎
 - have a changeable backround  and/or including the profile so it doesn't have to be 
 - maybe separating the script into different other scripts, so it's easier to read and understandz
-
+- also to-do is to finalize the game icon while playing

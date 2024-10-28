@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.muted = false;
             clickScreen.classList.add('hidden');
             fetchDiscordPresence(); // Fetch presence initially
-            // Set up auto-update every 1ms ( Discord API rate limit is 1 request per second )
-            setInterval(fetchDiscordPresence, 1); // i.e. 1 ms of delay
+            setInterval(fetchDiscordPresence, 1000); // Set up auto-update every 1 second (Discord API rate limit)
         }).catch(error => {
             console.error('Error playing the audio:', error);
         });
@@ -45,22 +44,35 @@ document.addEventListener('DOMContentLoaded', function() {
                         statusIconUrl = 'https://pixelvault.co/cm2s6jjz3002gerha5rfcvrmc/direct';
                     }
 
+
+                    
+
+
                     if (activities.length > 0) {
                         const activity = activities[0]; // Get the primary activity
-                        const largeImageUrl = activity.assets ? 'https://' + activity.assets.large_image.split('/https/')[1] : '';
-                        const smallImageUrl = activity.assets ? 'https://' + activity.assets.small_image.split('/https/')[1] : '';
+
+
+                        // Handle Spotify large_image URL formatting
+                        let largeImageUrl = '';
+                        if (activity.name === "Spotify" && activity.assets && activity.assets.large_image) {
+                            const spotifyImageId = activity.assets.large_image.replace('spotify:', '');
+                            largeImageUrl = `https://i.scdn.co/image/${spotifyImageId}`;
+                        } else if (activity.assets && activity.assets.large_image) {
+                            largeImageUrl = 'https://' + activity.assets.large_image.split('/https/')[1];
+                        }
+
+                        const smallImageUrl = activity.assets && activity.assets.small_image ? 'https://' + activity.assets.small_image.split('/https/')[1] : null; // Safely check small_image
                         const state = activity.state || '';
                         const details = activity.details || '';
 
-                        // Calculate music time elapsed or remaining
                         let timeHtml = '';
                         let progressBarHtml = '';
+
                         if (activity.type === 2 && activity.timestamps) { // Music activity with timestamp
                             const startTime = activity.timestamps.start; // Start time in UNIX ms
                             const endTime = activity.timestamps.end || null; // Optional end time
                             const currentTime = Date.now(); // Current time in UNIX ms
 
-                            // Calculate elapsed time if start exists
                             if (startTime) {
                                 const elapsed = Math.floor((currentTime - startTime) / 1000); // Time in seconds
                                 const minutes = Math.floor(elapsed / 60);
@@ -68,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
                                 if (endTime) {
-                                    // If endTime exists, calculate remaining time
                                     const totalDuration = Math.floor((endTime - startTime) / 1000);
                                     const remaining = totalDuration - elapsed;
                                     const remainingMinutes = Math.floor(remaining / 60);
@@ -76,10 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     const formattedRemaining = `${remainingMinutes}:${remainingSeconds.toString().padStart(2, '0')}`;
                                     timeHtml = `<p>Time Elapsed: ${formattedTime} / Remaining: ${formattedRemaining}</p>`;
 
-                                    // Calculate the percentage of the track that has been played
                                     const progressPercentage = (elapsed / totalDuration) * 100;
 
-                                    // Add progress bar
                                     progressBarHtml = `
                                         <div class="progress-bar-container">
                                             <div class="progress-bar" style="width: ${progressPercentage}%"></div>
@@ -108,12 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             `;
                         } else {
-                            // For non-music activities (like coding)
                             activityHtml = `
                                 <div class="activity">
                                     <div class="activity-image-container">
-                                        <img src="${largeImageUrl}" alt="Large Activity Image" class="activity-image" />
-                                        <img src="${smallImageUrl}" alt="Small Activity Image" class="activity-small-image" />
+                                        <img src="${largeImageUrl}" alt=" " class="activity-image" />
+                                        ${smallImageUrl ? `<img src="${smallImageUrl}" alt="Small Activity Image" class="activity-small-image" />` : ''}
                                     </div>
                                     <div class="activity-info">
                                         <p class="activity-name">${activity.name}</p>
@@ -197,13 +205,24 @@ document.addEventListener('DOMContentLoaded', function() {
                         .activity-details {
                             font-size: 0.9em;   
                             color: #555;
-                                }
-                          .profile-info {
-                        margin-left: 35px; /* Add some space between the image and the username */
-                        font-size: 1.2em;
-                        font-weight: bold;
-                        
-                                }
+                        }
+                        .profile-info {
+                            margin-left: 35px; /* Add some space between the image and the username */
+                            font-size: 1.2em;
+                            font-weight: bold;
+                        }
+                        .progress-bar-container {
+                            background-color: #ddd;
+                            height: 5px;
+                            border-radius: 5px;
+                            margin-top: 5px;
+                            width: 100%;
+                        }
+                        .progress-bar {
+                            background-color: #1db954;
+                            height: 5px;
+                            border-radius: 5px;
+                        }
                     `;
                     document.head.appendChild(style);
                 } else {
@@ -214,10 +233,9 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Error fetching Discord presence:', error);
                 const discordPresenceElement = document.getElementById('discord-presence');
-                discordPresenceElement.innerHTML = '<p>Error fetching Discord presence.</p>';
+                discordPresenceElement.innerHTML = '<p>Offline</p>';
             });
     }
-
     // Typing effect for the tab title
     const titles = ["ClouD", "610ud"];
     let index = 0;
@@ -235,18 +253,19 @@ document.addEventListener('DOMContentLoaded', function() {
             document.title = placeholder;
             charIndex++;
             setTimeout(typeTitle, speed);
-        } else if (isDeleting && charIndex >= 0) {
-            placeholder = currentTitle.substring(0, charIndex);
+        } else if (isDeleting && charIndex > 0) {
+            placeholder = currentTitle.substring(0, charIndex - 1);
             document.title = placeholder;
             charIndex--;
             setTimeout(typeTitle, eraseSpeed);
         } else {
             isDeleting = !isDeleting;
-            index = (index + 1) % titles.length;
-            currentTitle = titles[index];
+            if (!isDeleting) {
+                index = (index + 1) % titles.length;
+                currentTitle = titles[index];
+            }
             setTimeout(typeTitle, pauseBetween);
         }
     }
-
-    typeTitle();
+    setTimeout(typeTitle, 500);
 });
