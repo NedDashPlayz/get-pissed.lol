@@ -44,22 +44,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         statusIconUrl = 'https://pixelvault.co/cm2s6jjz3002gerha5rfcvrmc/direct';
                     }
 
-
-                    
-
-
                     if (activities.length > 0) {
                         const activity = activities[0]; // Get the primary activity
 
 
-                        // Handle Spotify large_image URL formatting
-                        let largeImageUrl = '';
-                        if (activity.name === "Spotify" && activity.assets && activity.assets.large_image) {
-                            const spotifyImageId = activity.assets.large_image.replace('spotify:', '');
-                            largeImageUrl = `https://i.scdn.co/image/${spotifyImageId}`;
-                        } else if (activity.assets && activity.assets.large_image) {
-                            largeImageUrl = 'https://' + activity.assets.large_image.split('/https/')[1];
-                        }
+                        // Handle large_image URL formatting
+            let largeImageUrl = '';
+                if (activity.assets && activity.assets.large_image) {
+                 if (activity.assets.large_image.startsWith('mp:attachments')) {
+            largeImageUrl = 'https://cdn.discordapp.com/' + activity.assets.large_image.replace('mp:', '');
+                    } else if (activity.name === "Spotify") {
+            const spotifyImageId = activity.assets.large_image.replace('spotify:', '');
+            largeImageUrl = `https://i.scdn.co/image/${spotifyImageId}`;
+                 } else {
+                        largeImageUrl = 'https://' + activity.assets.large_image.split('/https/')[1];
+                    }
+                    }
 
                         const smallImageUrl = activity.assets && activity.assets.small_image ? 'https://' + activity.assets.small_image.split('/https/')[1] : null; // Safely check small_image
                         const state = activity.state || '';

@@ -26,7 +26,7 @@ Massive update that was long overdue. I have been working on this project for a 
 
 ~ fixed that it didn't fetch the spotify activity
 ~ fixed the favicon not showing
-
+~ fixed finding the music large image
 
 -------------------------------------- Notes for Upcoming updates ---------------------------------
 
