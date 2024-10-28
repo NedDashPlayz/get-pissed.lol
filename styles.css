@@ -1,118 +1,145 @@
+/* Global Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background: url('background.gif') no-repeat center center fixed;
-    background-size: cover; /* Ensure the background covers the entire viewport */
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     position: relative;
-
-    /* Blur effect */
-    backdrop-filter: blur(9px); /* Adjust the blur radius as needed */
-    -webkit-backdrop-filter: blur(9px); /* For Safari browser, who even uses it? */
-}
-
-audio {
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+  
+  /* Audio Styles */
+  audio {
     width: 100%;
-    max-width: 400px; /* Adjust width as needed */
+    max-width: 400px;
     margin: 10px 0;
-}
-
-.container {
+  }
+  
+  /* Container Styles */
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Ensure it is below the click screen */
-}
-
+    z-index: 1;
+  }
+  
+  /* Profile Card Styles */
 .profile-card {
-    background: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
     color: #fff;
-    width: 300px;
-    position: relative; /* Ensure it is properly positioned */
-}
-
-.profile-header {
+    width: 600px; /* Increased width */
     position: relative;
 }
-
-.profile-pic {
+  
+  /* Profile Header Styles */
+  .profile-header {
+    position: relative;
+  }
+  
+  /* Profile Picture Styles */
+  .profile-pic {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
-}
-
-.username {
-    font-size: 24px;
+  }
+  
+  /* Username Styles */
+  .username {
+    font-size: 15px;
     margin: 0;
-}
-
-.status-icon {
-    background: green;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.status-text {
+  }
+  
+  
+  
+  /* Status Text Styles */
+  .status-text {
     font-size: 12px;
-}
-
-/* Styles for the click screen, no changie or everything breaks like the coconut.png */
-.click-screen {
+  }
+  
+  /* Click Screen Styles */
+  .click-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-    z-index: 10; /* Ensure it appears above other content */
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
     transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.click-screen.hidden {
+  }
+  
+  .click-screen.hidden {
     opacity: 0;
     visibility: hidden;
-}
-
-.social-icons {
-    margin-top: 10px; /* Adjust spacing as needed */
-    text-align: center; /* Center align the social icons */
-}
-
-.social-icons a {
+  }
+  
+  /* Social Icons Styles */
+  .social-icons {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .social-icons a {
     display: inline-block;
-    width: 25px; /* Adjust size of icons */
+    width: 25px;
     height: 50px;
-    margin: 0 10px; /* Adjust spacing between icons */
+    margin: 0 10px;
     background-size: contain;
     background-repeat: no-repeat;
-    text-indent: -9999px; /* Hide any text content */
+    text-indent: -9999px;
+  }
+  
+  /* Fakecrime Icon Styles */
+  .fakecrime-icon {
+    background-image: url('fakecrime-logo.png');
+    background-position: center center;
+  }
+  
+  /* Discord Icon Styles */
+  .discord-icon {
+    background-image: url('discord-logo.png');
+    background-position: center center;
+  }
+  
+  /* Discord Presence Styles */
+  #discord-presence {
+    background-color: rgba(52, 58, 64, 0.9);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px; /* Adjusted margin-top to reduce the notch */
+    text-align: center;
+    width: 90%;
+    max-width: 400px; /* Ensure it doesn't get too wide */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+    font-size: 14px; /* Adjust font size for readability */
 }
 
-.fakecrime-icon {
-    background-image: url('fakecrime-logo.png'); 
-    background-position: center center; /* Center the logo */
-}
-
-.discord-icon {
-    background-image: url('discord-logo.png'); 
-    background-position: center center; /* Center the logo with the fakecrime logo */
+@media (max-width: 600px) {
+    #discord-presence {
+        width: 100%;
+        padding: 15px;
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
 }
