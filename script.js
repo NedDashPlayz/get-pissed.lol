@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Error fetching Discord presence:', error);
                 const discordPresenceElement = document.getElementById('discord-presence');
-                discordPresenceElement.innerHTML = '<p>Error fetching Discord presence.</p>';
+                discordPresenceElement.innerHTML = '<p>Offline</p>';
             });
     }
 
