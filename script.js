@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fetchDiscordPresence() {
 
-        const url = `https://api.lanyard.rest/v1/users/543623256842829824`;
+        const url = `https://lanapi.pixelvault.co/v1/users/543623256842829824`;
  
 
         fetch(url)
