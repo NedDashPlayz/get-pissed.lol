@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         }
 
-                        // Timestamp and progress bar (for Spotify or other activities with timestamps)
+                        // Timestamp and progress bar
                         if (activity.timestamps) {
                             const startTime = activity.timestamps.start;
                             const endTime = activity.timestamps.end || null;

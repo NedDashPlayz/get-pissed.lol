@@ -256,13 +256,13 @@ audio {
   #discord-presence {
     width: 100%; /* Ensure it takes full width */
     padding: 10px; /* Adjust padding for smaller screens */
-    font-size: 10px; /* Adjust font size for smaller screens */
+    font-size: 10px; 
   }
 
   .profile-picture-container,
   .status-icon,
   .username-js {
-    display: none; /* Hide profile picture, status, and username for smaller screens */
+    display: none; 
   }
 }
 
