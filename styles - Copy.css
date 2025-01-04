@@ -1,0 +1,373 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.mp4') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+}
+
+/* Video Background Styles */
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+/* Audio Styles */
+audio {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+/* Container Styles */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Profile Card Styles */
+.profile-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  width: 600px; /* Increased width */
+}
+
+/* Profile Container Styles */
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.profile-picture-container {
+  position: relative;
+}
+
+.profile-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.status-icon {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  bottom: 7px;
+  right: -2px;
+}
+
+.username-js {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.activity-container {
+  flex-grow: 1;
+  padding: 10px;
+  background: #222;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.activity-images {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.large-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.activity-large-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  position: relative + 5px;
+}
+
+.activity-small-image {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 4.5px;
+  right: -7px;
+  border-radius: 50%;
+}
+
+.activity-game-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.activity-name {
+  font-weight: bold;
+}
+
+.activity-state {
+  color: gray;
+}
+
+.activity-details {
+  font-size: 0.9em;   
+  color: #555;
+}
+
+.profile-info {
+  margin-left: 35px; 
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.progress-bar-container {
+  background-color: #ddd;
+  height: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #1db954;
+  height: 5px;
+  border-radius: 5px;
+  transition: width 0.2s ease; 
+}
+
+.timestamp {
+  font-size: 0.9em;
+  color: #fff;
+}
+
+.time-elapsed {
+  font-weight: bold;
+}
+
+.time-remaining {
+  color: #aaa;
+}
+
+@media (max-width: 604px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 2%;
+    margin-top: 1%;
+  }
+
+  .profile-card {
+    width: 90%; /* Adjust width for smaller screens */
+    height: auto;
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .activity-container {
+    padding: 5px; /* Adjust padding for smaller screens */
+    font-size: 10px; /* Adjust font size for smaller screens */
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  .activity-info {
+    font-size: 10px; /* Adjust font size for smaller screens */
+  }
+
+  .activity-large-image {
+    width: 60px; /* Adjust width for smaller screens */
+    height: 60px; /* Adjust height for smaller screens */
+    margin-bottom: 0; /* Remove bottom margin */
+    right: -20px;
+  }
+
+  .activity-small-image {
+    width: 15px; /* Adjust width for smaller screens */
+    height: 15px; /* Adjust height for smaller screens */
+    bottom: 2px; /* Adjust bottom position */
+    right: -2px; /* Adjust right position */
+  }
+
+  .activity-game-icon {
+    width: 30px; /* Adjust width for smaller screens */
+    height: 30px; /* Adjust height for smaller screens */
+  }
+
+  .progress-bar-container {
+    height: 3px; /* Adjust height for smaller screens */
+  }
+
+  .progress-bar {
+    height: 3px; /* Adjust height for smaller screens */
+  }
+
+  .activity-state {
+    font-size: 8px; /* Adjust font size for smaller screens */
+  }
+
+  #discord-presence {
+    width: 100%; /* Ensure it takes full width */
+    padding: 10px; /* Adjust padding for smaller screens */
+    font-size: 10px; /* Adjust font size for smaller screens */
+  }
+
+  .profile-picture-container,
+  .status-icon,
+  .username-js {
+    display: none; /* Hide profile picture, status, and username for smaller screens */
+  }
+}
+
+/* Profile Header Styles */
+.profile-header {
+  position: relative;
+}
+
+/* Profile Picture Styles */
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Username Styles */
+.username-css {
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Status Text Styles */
+.status-text {
+  font-size: 12px;
+}
+
+/* Click Screen Styles */
+.click-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.click-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Social Icons Styles */
+.social-icons {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 25px;
+  height: 50px;
+  margin: 0 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+
+/* Fakecrime Icon Styles */
+.fakecrime-icon {
+  background-image: url('fakecrime-logo.png');
+  background-position: center center;
+}
+
+/* Discord Icon Styles */
+.discord-icon {
+  background-image: url('discord-logo.png');  
+  background-position: center center;
+}
+
+/* Discord Presence Styles */
+#discord-presence {
+  background-color: rgba(52, 58, 64, 0.9);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px; /* Adjusted margin-top to reduce the notch */
+  text-align: center;
+  width: 90%;
+  max-width: 700px; /* Ensure it doesn't get too wide */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-size: 14px; /* Adjust font size for readability */
+}
+
+.activity-game-icon {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  border-radius: 10px; /* Adjust the border radius as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for a 3D effect */
+  margin-bottom: 10px; /* Add some space below the icon */
+}
+
+@media (max-width: 600px) {
+  #discord-presence {
+      right:auto;
+      padding: 15px;
+      font-size: 12px; /* Adjust font size for smaller screens */
+  }
+}
