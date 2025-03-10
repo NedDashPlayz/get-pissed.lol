@@ -28,10 +28,23 @@ Massive update that was long overdue. I have been working on this project for a 
 ~ fixed the favicon not showing
 ~ fixed finding the music large image
 
+------------------------------------------------------------------------------------------------------
+
+04/01/25
+ 
+ ~ fixed game icons
+ + activity scructure overhaul
+ ~ fixed activity for mobile devices
+
+
+03/10/25
+
+~ fixed some games icons not showing
+~ sort of fixed the background not showing when network throttles
+~ favicon fixed
+
 -------------------------------------- Notes for Upcoming updates ---------------------------------
 
 - making so the backgound could be changed whenever
-- polish LanAPI card on how it looks, it looks too janky for my standarts, but good enough for publish 😎
-- have a changeable backround  and/or including the profile so it doesn't have to be 
-- maybe separating the script into different other scripts, so it's easier to read and understandz
-- also to-do is to finalize the game icon while playing
+- have a changeable backround  and/or including the profile so it doesn't have to be changed manually
+- 
