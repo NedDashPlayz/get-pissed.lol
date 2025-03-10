@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const clickScreen = document.getElementById('click-screen');
     const audio = document.getElementById('background-audio');
+    const backgroundVideo = document.getElementById('background-video');
+    const fallbackBackground = document.getElementById('fallback-background');
 
     // Set volume to 20%
     audio.volume = 0.2;
@@ -19,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
             setInterval(verifyGameIcon, 15000); // Verify game icon every 15 seconds
         }).catch(error => console.error('Error playing the audio:', error));
     }
+
+    // Show the video once it is ready to play and hide the fallback background
+    backgroundVideo.addEventListener('canplay', function () {
+        backgroundVideo.classList.remove('hidden');
+        fallbackBackground.style.display = 'none';
+    });
 
     let lastActivityTime = Date.now();
     let lastActivityId = null;

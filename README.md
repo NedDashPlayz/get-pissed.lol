@@ -36,7 +36,15 @@ Massive update that was long overdue. I have been working on this project for a 
  + activity scructure overhaul
  ~ fixed activity for mobile devices
 
+
+03/10/25
+
+~ fixed some games icons not showing
+~ sort of fixed the background not showing when network throttles
+~ favicon fixed
+
 -------------------------------------- Notes for Upcoming updates ---------------------------------
 
 - making so the backgound could be changed whenever
-- have a changeable backround  and/or including the profile so it doesn't have to be 
+- have a changeable backround  and/or including the profile so it doesn't have to be changed manually
+- 

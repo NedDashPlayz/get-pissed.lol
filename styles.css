@@ -2,8 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: url('background.mp4') no-repeat center center fixed;
-  background-size: cover;
+  background: #000; /* Set a background color that matches the initial frame of your video */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +11,8 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
+
 
 /* Video Background Styles */
 #background-video {
@@ -23,8 +24,11 @@ body {
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: -1; /* Ensure the video is behind other content */
-  filter:  blur(15px);
-  
+  filter: blur(15px);
+}
+
+.hidden {
+  display: none;
 }
 
 /* Audio Styles */
