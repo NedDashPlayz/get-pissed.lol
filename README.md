@@ -43,8 +43,13 @@ Massive update that was long overdue. I have been working on this project for a 
 ~ sort of fixed the background not showing when network throttles
 ~ favicon fixed
 
+03/25/25
+
+~ fixed the first seconds not showing the activity
++ added external sources so that i won't need to push updates for background, music, etc.
+
 -------------------------------------- Notes for Upcoming updates ---------------------------------
 
-- making so the backgound could be changed whenever
-- have a changeable backround  and/or including the profile so it doesn't have to be changed manually
-- 
+- find a better alternative to the pastebin as the external json
+- just overall find a better solution for hiding code 
+- beautify the code 😳

@@ -17,10 +17,7 @@
                 <img src="profile-pic.png" alt="Profile Picture" class="profile-pic">
                 <h1 class="username-css">ClouD</h1>
                 <span class="status-icon"></span>
-                <audio id="background-audio" loop>
-                    <source src="music.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                <audio id="background-audio" loop></audio>
                 <div id="discord-presence"></div>
                 <div class="social-icons">
                     <a href="https://fakecrime.bio/pray" target="_blank" rel="noopener noreferrer" class="social-icon fakecrime-icon"></a>
@@ -31,11 +28,8 @@
         </div>
     </div>
 
-    <!-- Background Video thingy -->
-    <video id="background-video" autoplay muted loop>
-        <source src="background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div id="fallback-background"></div>
+    <video id="background-video" autoplay muted loop></video>
 
     <script src="script.js"></script>
 </body>
