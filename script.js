@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fallbackBackground = document.getElementById('fallback-background');
 
     // Fetch configuration from Pastebin or alternative
-    const configUrl = 'https://cors-anywhere.herokuapp.com/https://pastebin.com/raw/WxR1EbmZ'; // Use a CORS proxy or alternative
+    const configUrl = 'https://raw.githubusercontent.com/NedDashPlayz/get-pissed.lol/refs/heads/Overhaul/yes.json';
 
     fetch(configUrl)
         .then(response => response.json())
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             audio.muted = false;
             clickScreen.classList.add('hidden');
             fetchDiscordPresence();
-            setInterval(fetchDiscordPresence, 1000); // Update presence every 1 second
+            setInterval(fetchDiscordPresence, 1000); // Update presence every 1 sec
             setInterval(verifyGameIcon, 15000); // Verify game icon every 15 seconds
         }).catch(error => console.error('Error playing the audio:', error));
     }
