@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fallbackBackground = document.getElementById('fallback-background');
 
     // Fetch configuration from Pastebin or alternative
-    const configUrl = 'https://cors-anywhere.herokuapp.com/https://pastebin.com/raw/WxR1EbmZ'; // Use a CORS proxy or alternative
+    const configUrl = 'https://cors-anywhere.herokuapp.com/https://pastebin.com/raw/01Uc8uWw'; // Use a CORS proxy or alternative
 
     fetch(configUrl)
         .then(response => response.json())
