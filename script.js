@@ -4,6 +4,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const backgroundVideo = document.getElementById('background-video');
     const fallbackBackground = document.getElementById('fallback-background');
 
+    // Fetch configuration from Pastebin or alternative
+    const configUrl = 'https://cors-anywhere.herokuapp.com/https://pastebin.com/raw/WxR1EbmZ'; // Use a CORS proxy or alternative
+
+    fetch(configUrl)
+        .then(response => response.json())
+        .then(config => {
+            // Update background video
+            const videoSource = document.createElement('source');
+            videoSource.src = config.background;
+            videoSource.type = 'video/mp4';
+            backgroundVideo.innerHTML = ''; // Clear existing sources
+            backgroundVideo.appendChild(videoSource);
+
+            // Update fallback background
+            fallbackBackground.style.backgroundImage = `url(${config.fallbackBackground})`;
+
+            // Update music
+            const audioSource = document.createElement('source');
+            audioSource.src = config.music;
+            audioSource.type = 'audio/mpeg';
+            audio.innerHTML = ''; // Clear existing sources
+            audio.appendChild(audioSource);
+
+            // Reload elements to apply changes
+            backgroundVideo.load();
+            audio.load();
+        })
+        .catch(error => console.error('Error fetching configuration:', error));
+
     // Set volume to 20%
     audio.volume = 0.2;
 
@@ -17,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             audio.muted = false;
             clickScreen.classList.add('hidden');
             fetchDiscordPresence();
-            setInterval(fetchDiscordPresence, 1000); // Update presence every second
+            setInterval(fetchDiscordPresence, 1000); // Update presence every 1 second
             setInterval(verifyGameIcon, 15000); // Verify game icon every 15 seconds
         }).catch(error => console.error('Error playing the audio:', error));
     }
@@ -166,24 +195,21 @@ document.addEventListener('DOMContentLoaded', function () {
                             verifyGameIcon(); // Fetch the game icon immediately after detecting the game
                         }
                     } else {
-                        const currentTime = Date.now();
-                        if (currentTime - lastActivityTime > 10000) { // 10 seconds
-                            const discordPresenceElement = document.getElementById('discord-presence');
-                            discordPresenceElement.innerHTML = `
-                                <div class="profile-container">
-                                    <div class="profile">
-                                        <div class="profile-picture-container">
-                                            <img src="${avatarUrl}" alt="Profile Picture" class="profile-picture" />
-                                            <img src="${statusIconUrl}" alt="Status Icon" class="status-icon" />
-                                        </div>
-                                        <p class="username-js">${username}</p>
+                        const discordPresenceElement = document.getElementById('discord-presence');
+                        discordPresenceElement.innerHTML = `
+                            <div class="profile-container">
+                                <div class="profile">
+                                    <div class="profile-picture-container">
+                                        <img src="${avatarUrl}" alt="Profile Picture" class="profile-picture" />
+                                        <img src="${statusIconUrl}" alt="Status Icon" class="status-icon" />
                                     </div>
-                                    <div class="profile-info">
-                                        <p>Online</p>
-                                    </div>
+                                    <p class="username-js">${username}</p>
                                 </div>
-                            `;
-                        }
+                                <div class="profile-info">
+                                    <p>Online</p>
+                                </div>
+                            </div>
+                        `;
                     }
                 } else {
                     const discordPresenceElement = document.getElementById('discord-presence');
