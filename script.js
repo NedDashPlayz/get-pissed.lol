@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fallbackBackground = document.getElementById('fallback-background');
 
     // Fetch configuration from Pastebin or alternative
-    const configUrl = 'https://raw.githubusercontent.com/NedDashPlayz/get-pissed.lol/refs/heads/Overhaul/yes.json';
+    const configUrl = 'https://raw.githubusercontent.com/610ud/get-pissed.lol/refs/heads/Overhaul/yes.json';
 
     fetch(configUrl)
         .then(response => response.json())
