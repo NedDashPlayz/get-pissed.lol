@@ -2,17 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: #000; /* Set a background color that matches the initial frame of your video */
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   position: relative;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow: hidden;
 }
-
-
 
 /* Video Background Styles */
 #background-video {
@@ -23,19 +20,19 @@ body {
   height: 110%;
   object-fit: cover;
   transform: translate(-50%, -50%);
-  z-index: -1; /* Ensure the video is behind other content */
+  z-index: -1;
   filter: blur(15px);
 }
 
 #fallback-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: -2; /* Ensure it is behind other content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
 }
 
 .hidden {
@@ -57,6 +54,8 @@ audio {
   width: 100%;
   height: 100%;
   z-index: 1;
+  padding: 0;
+  margin: 0;
 }
 
 /* Profile Card Styles */
@@ -66,15 +65,21 @@ audio {
   padding: 20px;
   text-align: center;
   color: #fff;
-  width: 600px; /* Increased width */
+  width: 600px;
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
 /* Profile Container Styles */
 .profile-container {
   display: flex;
   align-items: center;
-  margin-left: 5%;
-  margin-top: 2%;
+  margin: 2% auto 0;
+  width: 90%;
+  padding: 0;
 }
 
 .profile {
@@ -84,14 +89,18 @@ audio {
   margin-right: 20px;
 }
 
+/* Profile Picture & Status Styles */
 .profile-picture-container {
   position: relative;
+  display: inline-block;
 }
 
 .profile-picture {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  position: relative;
+  z-index: 1;
 }
 
 .status-icon {
@@ -100,19 +109,79 @@ audio {
   position: absolute;
   bottom: 7px;
   right: -2px;
+  z-index: 3;
+}
+
+.avatar-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .username-js {
   font-size: 15px;
   font-weight: bold;
   margin-top: 5px;
+  margin-bottom: 2px;
   text-align: center;
 }
 
+/* Clan Tag Styles */
+.clan-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin: 0 auto 10px;
+  max-width: fit-content;
+}
+
+.clan-badge {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.clan-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Custom Status Styles */
+.custom-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.custom-status-emoji {
+  width: 23px;
+  height: 19px;
+  margin-right: 5px;
+}
+
+.unicode-emoji {
+  font-size: 20px;
+  margin-right: 7px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Activity Container Styles */
 .activity-container {
   flex-grow: 1;
   padding: 10px;
-  background: #222;
+  background: #1e1e1e;
   border-radius: 8px;
   color: #fff;
   font-size: 14px;
@@ -129,6 +198,7 @@ audio {
   text-align: left;
 }
 
+/* Activity Images Styles */
 .activity-images {
   display: flex;
   flex-direction: column;
@@ -145,7 +215,7 @@ audio {
   height: 70px;
   border-radius: 8px;
   margin-bottom: 5px;
-  position: relative + 5px;
+  position: relative;
 }
 
 .activity-small-image {
@@ -155,6 +225,7 @@ audio {
   bottom: 4.5px;
   right: -7px;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .activity-game-icon {
@@ -165,6 +236,7 @@ audio {
   margin-bottom: 10px;
 }
 
+/* Activity Text Styles */
 .activity-name {
   font-weight: bold;
 }
@@ -184,6 +256,7 @@ audio {
   font-weight: bold;
 }
 
+/* Progress Bar Styles */
 .progress-bar-container {
   background-color: #ddd;
   height: 5px;
@@ -213,80 +286,31 @@ audio {
   color: #aaa;
 }
 
-@media (max-width: 604px) {
-  .profile-container {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 2%;
-    margin-top: 1%;
-  }
-
-  .profile-card {
-    width: 90%; /* Adjust width for smaller screens */
-    height: auto;
-    padding: 15px; /* Adjust padding for smaller screens */
-  }
-
-  .activity-container {
-    padding: 5px; /* Adjust padding for smaller screens */
-    font-size: 10px; /* Adjust font size for smaller screens */
-    width: 100%; /* Ensure it takes full width */
-  }
-
-  .activity-info {
-    font-size: 10px; /* Adjust font size for smaller screens */
-  }
-
-  .activity-large-image {
-    width: 60px; /* Adjust width for smaller screens */
-    height: 60px; /* Adjust height for smaller screens */
-    margin-bottom: 0; /* Remove bottom margin */
-    right: -20px;
-  }
-
-  .activity-small-image {
-    width: 15px; /* Adjust width for smaller screens */
-    height: 15px; /* Adjust height for smaller screens */
-    bottom: 2px; /* Adjust bottom position */
-    right: -2px; /* Adjust right position */
-  }
-
-  .activity-game-icon {
-    width: 30px; /* Adjust width for smaller screens */
-    height: 30px; /* Adjust height for smaller screens */
-  }
-
-  .progress-bar-container {
-    height: 3px; /* Adjust height for smaller screens */
-  }
-
-  .progress-bar {
-    height: 3px; /* Adjust height for smaller screens */
-  }
-
-  .activity-state {
-    font-size: 8px; /* Adjust font size for smaller screens */
-  }
-
-  #discord-presence {
-    width: 100%; /* Ensure it takes full width */
-    padding: 10px; /* Adjust padding for smaller screens */
-    font-size: 10px; 
-  }
-
-  .profile-picture-container,
-  .status-icon,
-  .username-js {
-    display: none; 
-  }
+/* Discord Presence Styles */
+#discord-presence {
+  background-color: rgba(52, 58, 64, 0.9);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px auto 0;
+  text-align: center;
+  width: 90%;
+  max-width: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  position: relative;
+  left: 0 !important;
+  right: 0 !important;
 }
 
-/* Profile Header Styles */
+/* Secondary UI Elements */
 .profile-header {
   position: relative;
 }
 
-/* Profile Picture Styles */
 .profile-pic {
   width: 100px;
   height: 100px;
@@ -294,13 +318,10 @@ audio {
   margin-bottom: 10px;
 }
 
-/* Username Styles */
 .username-css {
   font-size: 20px;
-  
 }
 
-/* Status Text Styles */
 .status-text {
   font-size: 12px;
 }
@@ -344,47 +365,223 @@ audio {
   text-indent: -9999px;
 }
 
-/* Fakecrime Icon Styles */
 .fakecrime-icon {
   background-image: url('fakecrime-logo.png');
   background-position: center center;
 }
 
-/* Discord Icon Styles */
 .discord-icon {
   background-image: url('discord-logo.png');  
   background-position: center center;
 }
 
-/* Discord Presence Styles */
-#discord-presence {
-  background-color: rgba(52, 58, 64, 0.9);
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 5px; /* Adjusted margin-top to reduce the notch */
-  text-align: center;
-  width: 90%;
-  max-width: 700px; /* Ensure it doesn't get too wide */
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  font-family: Arial, sans-serif; /* Ensure consistent font */
-  font-size: 14px; /* Adjust font size for readability */
-}
-
-.activity-game-icon {
-  width: 50px; /* Adjust the width as needed */
-  height: 50px; /* Adjust the height as needed */
-  border-radius: 10px; /* Adjust the border radius as needed */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for a 3D effect */
-  margin-bottom: 10px; /* Add some space below the icon */
-}
-
-@media (max-width: 600px) {
+/* Mobile Styles */
+@media (max-width: 604px) {
+  /* Base mobile layout */
+  .profile-container {
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    width: 95%;
+    padding: 0;
+  }
+  
+  .profile-card {
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+    padding: 15px 10px;
+    margin: 0 auto;
+    transform: none !important;
+  }
+  
   #discord-presence {
-      right:auto;
-      padding: 15px;
-      font-size: 12px; /* Adjust font size for smaller screens */
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto !important;
+    padding: 10px;
+    font-size: 11px;
+  }
+  
+  /* Profile elements for mobile */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    width: 35%;
+    min-width: 80px;
+  }
+
+  .profile-picture {
+    width: 50px;
+    height: 50px;
+  }
+
+  .status-icon {
+    width: 12px;
+    height: 12px;
+    bottom: 3px;
+    right: -1px;
+  }
+
+  .username-js {
+    font-size: 13px;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  /* Clan tag adjustments for mobile */
+  .clan-tag {
+    margin: 0 auto 5px;
+    padding: 1px 4px;
+    max-width: 90%;
+  }
+
+  .clan-badge {
+    width: 12px;
+    height: 12px;
+  }
+
+  .clan-name {
+    font-size: 10px;
+  }
+  
+  /* Custom status adjustments for mobile */
+  .custom-status {
+    font-size: 10px;
+    max-width: 90%;
+  }
+
+  .custom-status-emoji {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Activity container for mobile */
+  .activity-container {
+    padding: 8px;
+    font-size: 11px;
+    width: 65%;
+    background-color: #1e1e1e;
+    margin-top: 0;
+  }
+  
+  /* Activity content for mobile */
+  .activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .activity-info {
+    flex: 2;
+    margin-right: 5px;
+    overflow: hidden;
+  }
+  
+  .activity-name, .activity-state, .activity-details {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .activity-name {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  
+  /* Activity images for mobile */
+  .activity-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+  }
+
+  .large-image-container {
+    position: relative;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+  }
+
+  .activity-large-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    margin: 0 auto 5px;
+  }
+
+  .activity-small-image {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    bottom: 0;
+    right: -3px;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .activity-game-icon {
+    width: 30px;
+    height: 30px;
+    margin: 5px auto;
+    border-radius: 6px;
+  }
+}
+
+/* Firefox-specific Mobile Fixes */
+@-moz-document url-prefix() {
+  @media (max-width: 604px) {
+    .profile-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+    
+    .profile {
+      width: 35%;
+      min-width: 70px;
+    }
+    
+    .activity-container {
+      width: 60%;
+      flex-shrink: 0;
+    }
+    
+    .large-image-container {
+      margin: 0 auto 5px;
+    }
+    
+    .activity-large-image {
+      position: static;
+      margin: 0 auto 8px;
+    }
+    
+    .activity-small-image {
+      position: absolute;
+      bottom: 0;
+      right: -3px;
+    }
+    
+    #discord-presence {
+      width: 95%;
+      box-sizing: border-box;
+    }
+    
+    .profile-card {
+      width: 95%;
+      max-width: 450px;
+      box-sizing: border-box;
+      padding: 15px 10px;
+    }
   }
 }
