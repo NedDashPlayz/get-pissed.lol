@@ -32,9 +32,9 @@ Massive update that was long overdue. I have been working on this project for a 
 
 04/01/25
  
- ~ fixed game icons
- + activity scructure overhaul
- ~ fixed activity for mobile devices
+~ fixed game icons
++ activity scructure overhaul
+~ fixed activity for mobile devices
 
 
 03/10/25
@@ -48,8 +48,16 @@ Massive update that was long overdue. I have been working on this project for a 
 ~ fixed the first seconds not showing the activity
 + added external sources so that i won't need to push updates for background, music, etc.
 
+05/26/25 Major update
+
+~ fixed the video not showing for firefox browsers ( changed to webm instead of mp4 )
++ added clan tag 
++ added avatar decoration
++ added custom / normal emojis for the discord custom status
+~ custom status is now below the clan tag, looks better than replacing the whole activity with it
+
+
 -------------------------------------- Notes for Upcoming updates ---------------------------------
 
-- find a better alternative to the pastebin as the external json
-- just overall find a better solution for hiding code 
-- beautify the code 😳
+- fix potential off-centering for chromium based browsers
+- adding theme options 
